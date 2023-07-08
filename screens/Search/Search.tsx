@@ -10,11 +10,11 @@ type SearchProps = {
 
 const Search: React.FC<SearchProps> = ({ text, setText }) => {
   return (
-    <View>
+    <View style={styles.search}>
       <Text variant="headlineSmall">Listo para buscar en el barrio?</Text>
       <TextInput
         mode="outlined"
-        style={styles.input}
+        style={styles.inputItem}
         label="Busca tu local Altoque!"
         value={text}
         onChangeText={(text) => setText(text)}
@@ -26,8 +26,12 @@ const Search: React.FC<SearchProps> = ({ text, setText }) => {
 export default Search
 
 const styles = StyleSheet.create({
-  input: {
-    width: '55%',
-    borderRadius: 6,
+  search: {
+    flex: 0.3,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  inputItem: {
+    width: 300,
   },
 })
