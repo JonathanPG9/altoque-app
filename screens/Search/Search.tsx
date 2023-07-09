@@ -27,7 +27,7 @@ export default Search
 
 const styles = StyleSheet.create({
   search: {
-    flex: 0.3,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
