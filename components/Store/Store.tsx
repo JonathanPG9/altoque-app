@@ -9,27 +9,35 @@ type StoreProps = {
 }
 
 const Store: React.FC<StoreProps> = ({ title, descripcion, phoneNumber }) => (
-  <Card style={styles.store} elevation={5}>
-    <Card.Title style={styles.storeImg} title={title} />
-    <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+  <Card style={styles.store} mode={'contained'}>
+    <Card.Cover
+      style={styles.storeImg}
+      source={{ uri: 'https://picsum.photos/700' }}
+      theme={{
+        roundness: 4,
+        isV3: false,
+      }}
+    />
+    <Card.Title title={title} subtitle={phoneNumber} />
     <Card.Content>
       <Text>{descripcion}</Text>
     </Card.Content>
     <Card.Actions>
-      <Button>Cancel</Button>
-      <Button>Ok</Button>
+      <Button>Llamar</Button>
+      <Button>Ver mas...</Button>
     </Card.Actions>
   </Card>
 )
 
 const styles = StyleSheet.create({
   store: {
-    margin: 6,
+    margin: 5,
     width: 255,
   },
   storeImg: {
-    borderRadius: 0,
-    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    overflow: 'hidden',
   },
 })
 
