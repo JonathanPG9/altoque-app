@@ -59,7 +59,9 @@ const Stores: React.FC<StoresProps> = ({ text }) => {
 export default Stores
 
 const styles = StyleSheet.create({
-  stores: {},
+  stores: {
+    flex: 1,
+  },
   columnWrapper: {
     flexDirection: 'row',
     height: 100,
