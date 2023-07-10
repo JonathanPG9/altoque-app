@@ -1,6 +1,7 @@
 import React from 'react'
 import Categorie from '../../components/Categorie/Categorie'
 import { ScrollView, StyleSheet, View } from 'react-native'
+import { Text } from 'react-native-paper'
 
 type CategoriesProps = {
   text: string
@@ -60,6 +61,9 @@ const CATEGORIES = [
 const Categories: React.FC<CategoriesProps> = () => {
   return (
     <View style={styles.container}>
+      <Text style={styles.title} variant="titleLarge">
+        Categorias
+      </Text>
       <ScrollView horizontal>
         {CATEGORIES.map((categorie) => (
           <Categorie
@@ -78,6 +82,10 @@ export default Categories
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.15,
+    flex: 0.2,
+  },
+  title: {
+    marginLeft: 9,
+    marginBottom: 5,
   },
 })

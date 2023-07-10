@@ -1,5 +1,6 @@
 import React from 'react'
 import { FlatList, StyleSheet } from 'react-native'
+import { Text } from 'react-native-paper'
 import Store from '../../components/Store/Store'
 
 type StoresProps = {
@@ -39,20 +40,25 @@ const DATA = [
 
 const Stores: React.FC<StoresProps> = ({ text }) => {
   return (
-    <FlatList
-      style={styles.stores}
-      data={DATA}
-      renderItem={({ item }) => (
-        <Store
-          title={item.title}
-          descripcion={item.descripcion}
-          phoneNumber={item.phoneNumber}
-        />
-      )}
-      keyExtractor={(item) => item.id}
-      horizontal
-      contentContainerStyle={styles.columnWrapper}
-    ></FlatList>
+    <>
+      <Text style={styles.title} variant="titleLarge">
+        Locales
+      </Text>
+      <FlatList
+        style={styles.stores}
+        data={DATA}
+        renderItem={({ item }) => (
+          <Store
+            title={item.title}
+            descripcion={item.descripcion}
+            phoneNumber={item.phoneNumber}
+          />
+        )}
+        keyExtractor={(item) => item.id}
+        horizontal
+        contentContainerStyle={styles.column}
+      ></FlatList>
+    </>
   )
 }
 
@@ -62,9 +68,10 @@ const styles = StyleSheet.create({
   stores: {
     flex: 1,
   },
-  columnWrapper: {
-    flexDirection: 'row',
+  column: {
     height: 100,
-    justifyContent: 'space-between',
+  },
+  title: {
+    margin: 10,
   },
 })
