@@ -1,14 +1,18 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
+import { Avatar } from 'react-native-paper'
 
-const Categorie: React.FC = () => {
+type CategorieProps = {
+  type: string
+  label: string
+  icon: any
+}
+
+const Categorie: React.FC<CategorieProps> = ({ type, label, icon }) => {
   return (
-    <View>
-      <Image
-        style={styles.categorieImg}
-        source={require('../../assets/bakery.png')}
-      />
-      <Text>Ho la</Text>
+    <View style={styles.categorie}>
+      <Avatar.Image style={styles.categorieImg} source={icon} size={46} />
+      <Text>{label}</Text>
     </View>
   )
 }
@@ -16,9 +20,14 @@ const Categorie: React.FC = () => {
 export default Categorie
 
 const styles = StyleSheet.create({
+  categorie: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginHorizontal: 8,
+  },
   categorieImg: {
-    width: 35,
-    height: 35,
-    resizeMode: 'contain',
+    backgroundColor: 'white',
+    resizeMode: 'cover',
   },
 })
