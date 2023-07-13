@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { Avatar } from 'react-native-paper'
+import PropTypes from 'prop-types'
 
 type CategorieProps = {
   type: string
@@ -31,6 +32,14 @@ const Categorie: React.FC<CategorieProps> = ({
     </View>
   </TouchableOpacity>
 )
+
+Categorie.propTypes = {
+  type: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  icon: PropTypes.any.isRequired,
+  selectedType: PropTypes.string.isRequired,
+  handlePressAction: PropTypes.func.isRequired,
+}
 
 export default Categorie
 

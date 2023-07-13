@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import type { ReactNode } from 'react'
 import { createContext, useState } from 'react'
 import { data } from '../../utils/dataMocked'
+import PropTypes from 'prop-types'
 
 type StoresProviderProps = {
   children: ReactNode
@@ -34,6 +34,10 @@ const StoresProvider: React.FC<StoresProviderProps> = ({ children }) => {
       {children}
     </StoresContext.Provider>
   )
+}
+
+StoresProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export default StoresProvider
