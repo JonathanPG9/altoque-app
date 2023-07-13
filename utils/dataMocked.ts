@@ -80,7 +80,7 @@ const data = [
       'testLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id tortor vitae nulla dictum commodo. Phasellus fringilla tristique ipsum',
     storeName: 'Liberty 31',
     foodCategory: 'bar, alcohol, tragos, birra',
-    storeType: 'bar-counter',
+    storeType: 'pizza',
     openingHours: {
       weekdays: {
         opening: '9:30 AM',
@@ -146,4 +146,31 @@ const data = [
   },
 ]
 
-export { data }
+const CATEGORIES = [
+  {
+    id: 0,
+    type: 'bakery',
+    label: 'Panaderías',
+    icon: require('../assets/bakery.png'),
+  },
+  {
+    id: 1,
+    type: 'restaurant',
+    label: 'Restaurantes',
+    icon: require(`../assets/fried-rice.png`),
+  },
+  {
+    id: 2,
+    type: 'Hamburguesas',
+    label: 'Hamburguesas',
+    icon: require(`../assets/burger.png`),
+  },
+  {
+    id: 3,
+    type: 'pizza',
+    label: 'Pizza',
+    icon: require(`../assets/pizza.png`),
+  },
+]
+
+export { data, CATEGORIES }

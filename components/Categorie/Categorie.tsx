@@ -1,21 +1,36 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { Avatar } from 'react-native-paper'
 
 type CategorieProps = {
   type: string
   label: string
   icon: any
+  selectedType: string
+  handlePressAction: () => void
 }
 
-const Categorie: React.FC<CategorieProps> = ({ type, label, icon }) => {
-  return (
+const Categorie: React.FC<CategorieProps> = ({
+  type,
+  label,
+  icon,
+  selectedType,
+  handlePressAction,
+}) => (
+  <TouchableOpacity onPress={handlePressAction}>
     <View style={styles.categorie}>
-      <Avatar.Image style={styles.categorieImg} source={icon} size={46} />
+      <Avatar.Image
+        style={
+          selectedType === type
+            ? styles.categorieImgPressed
+            : styles.categorieImg
+        }
+        source={icon}
+        size={46}
+      />
       <Text>{label}</Text>
     </View>
-  )
-}
+  </TouchableOpacity>
+)
 
 export default Categorie
 
@@ -28,6 +43,8 @@ const styles = StyleSheet.create({
   },
   categorieImg: {
     backgroundColor: 'white',
-    resizeMode: 'cover',
+  },
+  categorieImgPressed: {
+    backgroundColor: 'red',
   },
 })

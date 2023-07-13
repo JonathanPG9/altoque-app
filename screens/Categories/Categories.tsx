@@ -1,60 +1,27 @@
-import React from 'react'
+import { useState } from 'react'
 import Categorie from '../../components/Categorie/Categorie'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import { Text } from 'react-native-paper'
-
-const CATEGORIES = [
-  {
-    id: 0,
-    type: 'bakery',
-    label: 'Panaderias',
-    icon: require(`../../assets/bakery.png`),
-  },
-  {
-    id: 1,
-    type: 'Resto',
-    label: 'Comidas',
-    icon: require(`../../assets/fried-rice.png`),
-  },
-  {
-    id: 2,
-    type: 'burgers',
-    label: 'Burgers',
-    icon: require(`../../assets/burger.png`),
-  },
-  {
-    id: 3,
-    type: 'pizza',
-    label: 'Pizza',
-    icon: require(`../../assets/pizza.png`),
-  },
-  {
-    id: 4,
-    type: 'burgers',
-    label: 'Burgers',
-    icon: require(`../../assets/burger.png`),
-  },
-  {
-    id: 5,
-    type: 'pizza',
-    label: 'Pizza',
-    icon: require(`../../assets/pizza.png`),
-  },
-  {
-    id: 6,
-    type: 'burgers',
-    label: 'Burgers',
-    icon: require(`../../assets/burger.png`),
-  },
-  {
-    id: 7,
-    type: 'pizza',
-    label: 'Pizza',
-    icon: require(`../../assets/pizza.png`),
-  },
-]
+import useStoresProvider from '../../hooks/useStoresProvider'
+import { CATEGORIES } from '../../utils/dataMocked'
 
 const Categories: React.FC = () => {
+  const { defaultStores, setStores } = useStoresProvider()
+  const [selectedType, setSelectedType] = useState<string>('')
+
+  const handlePressAction = (type: string) => {
+    if (selectedType === type) {
+      setSelectedType('')
+      setStores(defaultStores)
+      return
+    }
+    setSelectedType(type)
+    const storesFiltered = defaultStores.filter(
+      (store) => store.storeType === type
+    )
+    setStores(storesFiltered)
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title} variant="titleLarge">
@@ -67,6 +34,8 @@ const Categories: React.FC = () => {
             type={categorie.type}
             label={categorie.label}
             icon={categorie.icon}
+            selectedType={selectedType}
+            handlePressAction={() => handlePressAction(categorie.type)}
           />
         ))}
       </ScrollView>

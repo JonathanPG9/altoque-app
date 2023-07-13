@@ -8,8 +8,9 @@ type StoresProviderProps = {
 }
 
 type StoresContextValueProps = {
+  defaultStores: any[]
   text: string
-  stores: any[] // Asegúrate de especificar el tipo adecuado para `stores`
+  stores: any[]
   setStores: (stores: any[]) => void
   setText: (text: string) => void
 }
@@ -21,6 +22,7 @@ const StoresProvider: React.FC<StoresProviderProps> = ({ children }) => {
   const [stores, setStores] = useState(data)
 
   const contextValue: StoresContextValueProps = {
+    defaultStores: data,
     text,
     stores,
     setStores,

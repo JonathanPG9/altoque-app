@@ -2,7 +2,7 @@ import React from 'react'
 import Search from '../Search/Search'
 import Stores from '../Stores/Stores'
 import Categories from '../Categories/Categories'
-import StoresProvider from '../../core/context/StoresProvider'
+import StoresProvider from '../../core/contexts/StoresProvider'
 
 const MainContainer: React.FC = () => {
   return (

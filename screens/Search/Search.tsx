@@ -1,5 +1,4 @@
 // imports
-import * as React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Text, TextInput } from 'react-native-paper'
 
@@ -13,8 +12,6 @@ const Search: React.FC = () => {
         mode="outlined"
         style={styles.inputItem}
         label="Busca tu local Altoque!"
-        // value={text}
-        // onChangeText={(text) => setText(text)}
       />
     </View>
   )
