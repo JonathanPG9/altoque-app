@@ -3,10 +3,6 @@ import Categorie from '../../components/Categorie/Categorie'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import { Text } from 'react-native-paper'
 
-type CategoriesProps = {
-  text: string
-}
-
 const CATEGORIES = [
   {
     id: 0,
@@ -58,7 +54,7 @@ const CATEGORIES = [
   },
 ]
 
-const Categories: React.FC<CategoriesProps> = () => {
+const Categories: React.FC = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title} variant="titleLarge">

@@ -2,22 +2,16 @@ import React from 'react'
 import Search from '../Search/Search'
 import Stores from '../Stores/Stores'
 import Categories from '../Categories/Categories'
-import { View, StyleSheet } from 'react-native'
+import StoresProvider from '../../core/context/StoresProvider'
 
 const MainContainer: React.FC = () => {
   return (
-    <View style={styles.main}>
-      <Search text={text} setText={setText} />
-      <Categories text={text} />
-      <Stores text={text} />
-    </View>
+    <StoresProvider>
+      <Search />
+      <Categories />
+      <Stores />
+    </StoresProvider>
   )
 }
 
 export default MainContainer
-
-const styles = StyleSheet.create({
-  main: {
-    flex: 1,
-  },
-})

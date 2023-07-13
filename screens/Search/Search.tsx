@@ -3,12 +3,7 @@ import * as React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Text, TextInput } from 'react-native-paper'
 
-type SearchProps = {
-  text: string
-  setText: (text: string) => void
-}
-
-const Search: React.FC<SearchProps> = ({ text, setText }) => {
+const Search: React.FC = () => {
   return (
     <View style={styles.search}>
       <Text style={styles.textTitle} variant="headlineSmall">
@@ -18,8 +13,8 @@ const Search: React.FC<SearchProps> = ({ text, setText }) => {
         mode="outlined"
         style={styles.inputItem}
         label="Busca tu local Altoque!"
-        value={text}
-        onChangeText={(text) => setText(text)}
+        // value={text}
+        // onChangeText={(text) => setText(text)}
       />
     </View>
   )

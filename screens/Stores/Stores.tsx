@@ -1,21 +1,12 @@
-import React, { useState } from 'react'
 import { FlatList, StyleSheet } from 'react-native'
 import { Text } from 'react-native-paper'
 import Store from '../../components/Store/Store'
 
-type StoresProps = {
-  text: string
-}
+// hooks
+import useStoresProvider from '../../hooks/useStoresProvider'
 
-const Stores: React.FC<StoresProps> = ({ text }) => {
-  const [stores, setStores] = useState(data)
-
-  const filterStores = (storeEvent) => {
-    const storesFiltered = stores?.filter(
-      (store) => store.foodCategory === text
-    )
-    console.log(storesFiltered)
-  }
+const Stores: React.FC = () => {
+  const { stores } = useStoresProvider()
 
   return (
     <>
