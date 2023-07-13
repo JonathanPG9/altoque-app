@@ -64,7 +64,7 @@ const Categories: React.FC<CategoriesProps> = () => {
       <Text style={styles.title} variant="titleLarge">
         Categorias
       </Text>
-      <ScrollView horizontal>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {CATEGORIES.map((categorie) => (
           <Categorie
             key={categorie.id}

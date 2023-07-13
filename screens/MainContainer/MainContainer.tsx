@@ -5,7 +5,6 @@ import Categories from '../Categories/Categories'
 import { View, StyleSheet } from 'react-native'
 
 const MainContainer: React.FC = () => {
-  const [text, setText] = React.useState<string>('')
   return (
     <View style={styles.main}>
       <Search text={text} setText={setText} />
